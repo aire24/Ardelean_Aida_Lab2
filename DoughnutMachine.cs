@@ -74,7 +74,7 @@ namespace Ardelean_Aida_Lab2
         Sugar,
         Lemon,
         Chocolate,
-        Vanilla,
+        Vanilla
     }
     class Doughnut
     {
