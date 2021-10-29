@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Threading; 
+using System.Windows.Threading;
 
 namespace Ardelean_Aida_Lab2
 {
     class DoughnutMachine
     {
         private DoughnutType mFlavor;
+
         public DoughnutType Flavor
         {
             get
@@ -29,15 +30,18 @@ namespace Ardelean_Aida_Lab2
             this.doughnutTimer = new DispatcherTimer();
             this.doughnutTimer.Tick += new System.EventHandler(this.doughnutTimer_Tick);
         }
+
         public DoughnutMachine()
         {
             InitializeComponent();
         }
+
         private void doughnutTimer_Tick(object sender, EventArgs e)
         {
             Doughnut aDoughnut = new Doughnut(this.Flavor);
             DoughnutComplete();
         }
+
         public bool Enabled
         {
             set
@@ -66,9 +70,9 @@ namespace Ardelean_Aida_Lab2
             }
             doughnutTimer.Start();
         }
-
     }
-    public enum DoughnutType 
+
+    public enum DoughnutType
     {
         Glazed,
         Sugar,
@@ -76,6 +80,7 @@ namespace Ardelean_Aida_Lab2
         Chocolate,
         Vanilla
     }
+
     class Doughnut
     {
         private DoughnutType mFlavor;
@@ -91,6 +96,7 @@ namespace Ardelean_Aida_Lab2
                 mFlavor = value;
             }
         }
+
         private readonly DateTime mTimeOfCreation;
         public DateTime TimeOfCreation
         {
@@ -98,13 +104,12 @@ namespace Ardelean_Aida_Lab2
             {
                 return mTimeOfCreation;
             }
-
         }
-        public Doughnut(DoughnutType aFlavor) // constructor
+        public Doughnut(DoughnutType aFlavor)//constructor
         {
             mTimeOfCreation = DateTime.Now;
             mFlavor = aFlavor;
         }
     }
-    
 }
+
